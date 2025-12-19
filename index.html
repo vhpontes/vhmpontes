@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfólio Técnico de Victor Hugo Manata Pontes - Analista de Sistemas">
+    <title>Victor Hugo Manata Pontes | Analista de Sistemas</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    
+    <!-- Google Fonts -->
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;600;800&display=swap');
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0f172a; /* Slate 900 */
+            color: #f8fafc; /* Slate 50 */
+            scroll-behavior: smooth;
+        }
+        
+        .mono-font { font-family: 'JetBrains Mono', monospace; }
+        
+        /* Grid Background Pattern */
+        .bg-grid {
+            background-size: 40px 40px;
+            background-image: linear-gradient(to right, rgba(59, 130, 246, 0.05) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(59, 130, 246, 0.05) 1px, transparent 1px);
+        }
+
+        /* Glassmorphism Cards */
+        .glass-card {
+            background: rgba(30, 41, 59, 0.4);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(148, 163, 184, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .glass-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(59, 130, 246, 0.5);
+            box-shadow: 0 10px 30px -10px rgba(59, 130, 246, 0.3);
+        }
+
+        .text-glow {
+            text-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+        }
+        
+        /* Animation Classes */
+        .fade-in { animation: fadeIn 1s ease-out; }
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body class="bg-grid overflow-x-hidden">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full z-50 bg-slate-900/80 backdrop-blur border-b border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-16">
+                <div class="flex items-center gap-2">
+                    <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                    <span class="mono-font font-bold text-blue-400">VHMP.dev</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#about" class="text-sm hover:text-blue-400 transition-colors">Sobre</a>
+                    <a href="#stack" class="text-sm hover:text-blue-400 transition-colors">Stack</a>
+                    <a href="#contact" class="text-sm hover:text-blue-400 transition-colors">Contato</a>
+                </div>
+                <!-- Language Toggles -->
+                <div class="flex gap-2 text-xs font-bold">
+                    <button onclick="setLang('pt')" id="btn-pt" class="text-blue-400">PT</button>
+                    <span class="text-slate-600">/</span>
+                    <button onclick="setLang('en')" id="btn-en" class="text-slate-500 hover:text-white">EN</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header id="about" class="min-h-screen flex items-center justify-center relative pt-16">
+        <div class="max-w-7xl mx-auto px-4 grid md:grid-cols-2 gap-12 items-center">
+            
+            <!-- Text Content -->
+            <div class="fade-in">
+                <div class="inline-block px-3 py-1 mb-4 text-xs font-bold tracking-wider text-blue-300 uppercase bg-blue-900/30 rounded-full border border-blue-500/30">
+                    System Analyst
+                </div>
+                <h1 class="text-5xl md:text-7xl font-extrabold tracking-tight mb-6">
+                    Victor Hugo<br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-300 text-glow">Manata Pontes</span>
+                </h1>
+                <p class="text-lg text-slate-400 mb-8 max-w-lg leading-relaxed" data-i18n="hero_text">
+                    Transformando requisitos complexos em arquiteturas escaláveis. Especialista em Análise de Sistemas, Desenvolvimento Full-Stack e Otimização de Processos.
+                </p>
+                <div class="flex gap-4">
+                    <a href="#contact" class="px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white font-bold rounded-lg transition-all shadow-[0_0_20px_rgba(37,99,235,0.3)]" data-i18n="btn_contact">
+                        Conectar
+                    </a>
+                    <a href="https://github.com/victorhugomanatapontes" target="_blank" class="px-6 py-3 border border-slate-600 hover:border-white text-slate-300 hover:text-white font-bold rounded-lg transition-all flex items-center gap-2">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
+                        GitHub
+                    </a>
+                </div>
+            </div>
+
+            <!-- Interactive Visual -->
+            <div class="glass-card p-6 rounded-xl relative fade-in" style="animation-delay: 0.2s;">
+                <div class="flex justify-between items-center mb-4 border-b border-slate-700 pb-2">
+                    <h3 class="font-bold text-white flex items-center gap-2">
+                        <span class="text-green-400 text-lg">●</span> Live Stats
+                    </h3>
+                    <div class="mono-font text-xs text-slate-500">v2.0.4</div>
+                </div>
+                <div class="relative h-64 w-full">
+                    <canvas id="heroRadar"></canvas>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Scroll Down Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce text-slate-500">
+            ↓
+        </div>
+    </header>
+
+    <!-- Tech Stack Section -->
+    <section id="stack" class="py-20 bg-slate-900/50">
+        <div class="max-w-7xl mx-auto px-4">
+            <h2 class="text-3xl font-bold mb-12 text-center" data-i18n="stack_title">Arsenal Tecnológico</h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Card 1 -->
+                <div class="glass-card p-8 rounded-xl">
+                    <div class="text-4xl mb-4">⚙️</div>
+                    <h3 class="text-xl font-bold mb-2 text-white">Backend & Arquitetura</h3>
+                    <ul class="text-slate-400 text-sm space-y-2 mono-font">
+                        <li>• API RESTful / GraphQL</li>
+                        <li>• Microservices Design</li>
+                        <li>• Node.js / Python / Java</li>
+                        <li>• SQL & NoSQL Databases</li>
+                    </ul>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="glass-card p-8 rounded-xl border-blue-500/30">
+                    <div class="text-4xl mb-4">💻</div>
+                    <h3 class="text-xl font-bold mb-2 text-white">Sistemas & Análise</h3>
+                    <ul class="text-slate-400 text-sm space-y-2 mono-font">
+                        <li>• Levantamento de Requisitos</li>
+                        <li>• UML & Modelagem de Dados</li>
+                        <li>• Metodologias Ágeis (Scrum)</li>
+                        <li>• Documentação Técnica</li>
+                    </ul>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="glass-card p-8 rounded-xl">
+                    <div class="text-4xl mb-4">🚀</div>
+                    <h3 class="text-xl font-bold mb-2 text-white">DevOps & Cloud</h3>
+                    <ul class="text-slate-400 text-sm space-y-2 mono-font">
+                        <li>• CI/CD Pipelines</li>
+                        <li>• Docker & Kubernetes</li>
+                        <li>• AWS / Azure Services</li>
+                        <li>• Monitoramento & Logs</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Links Section -->
+    <section id="contact" class="py-20">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-8 text-white" data-i18n="connect_title">Inicializar Conexão</h2>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="https://linkedin.com/in/victorhugomanatapontes" target="_blank" class="flex items-center gap-3 px-8 py-4 bg-slate-800 hover:bg-blue-700 text-white rounded-lg transition-all border border-slate-700 hover:border-blue-400">
+                    <span>LinkedIn</span>
+                </a>
+                <a href="https://github.com/victorhugomanatapontes" target="_blank" class="flex items-center gap-3 px-8 py-4 bg-slate-800 hover:bg-purple-700 text-white rounded-lg transition-all border border-slate-700 hover:border-purple-400">
+                    <span>GitHub</span>
+                </a>
+                <a href="https://youtube.com/c/victorhugomanatapontes" target="_blank" class="flex items-center gap-3 px-8 py-4 bg-slate-800 hover:bg-red-700 text-white rounded-lg transition-all border border-slate-700 hover:border-red-400">
+                    <span>YouTube</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="py-8 text-center text-slate-600 text-sm mono-font border-t border-slate-800">
+        <p>&copy; 2025 Victor Hugo Manata Pontes. System.exit(0);</p>
+    </footer>
+
+    <script>
+        // --- Translations ---
+        const i18n = {
+            pt: {
+                hero_text: "Transformando requisitos complexos em arquiteturas escaláveis. Especialista em Análise de Sistemas, Desenvolvimento Full-Stack e Otimização de Processos.",
+                btn_contact: "Conectar",
+                stack_title: "Arsenal Tecnológico",
+                connect_title: "Inicializar Conexão",
+                radar_labels: ['Análise Sistêmica', 'Backend', 'Frontend', 'DevOps', 'Gestão Ágil', 'QA/Testes']
+            },
+            en: {
+                hero_text: "Transforming complex requirements into scalable architectures. Specialist in Systems Analysis, Full-Stack Development, and Process Optimization.",
+                btn_contact: "Connect",
+                stack_title: "Tech Stack",
+                connect_title: "Initialize Connection",
+                radar_labels: ['Systems Analysis', 'Backend', 'Frontend', 'DevOps', 'Agile Mgmt', 'QA/Testing']
+            }
+        };
+
+        let currentLang = 'pt';
+        let radarChart;
+
+        function initChart() {
+            const ctx = document.getElementById('heroRadar').getContext('2d');
+            radarChart = new Chart(ctx, {
+                type: 'radar',
+                data: {
+                    labels: i18n[currentLang].radar_labels,
+                    datasets: [{
+                        label: 'Skill Metrics',
+                        data: [95, 90, 75, 80, 85, 70],
+                        backgroundColor: 'rgba(59, 130, 246, 0.2)',
+                        borderColor: '#60a5fa',
+                        pointBackgroundColor: '#fff',
+                        pointBorderColor: '#3b82f6',
+                        borderWidth: 2
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        r: {
+                            angleLines: { color: 'rgba(255, 255, 255, 0.1)' },
+                            grid: { color: 'rgba(255, 255, 255, 0.1)' },
+                            pointLabels: { color: '#94a3b8', font: { size: 12, family: "'Inter', sans-serif" } },
+                            ticks: { display: false, backdropColor: 'transparent' }
+                        }
+                    },
+                    plugins: { legend: { display: false } }
+                }
+            });
+        }
+
+        function setLang(lang) {
+            currentLang = lang;
+            
+            // Toggle Button Styles
+            document.getElementById('btn-pt').className = lang === 'pt' ? 'text-blue-400' : 'text-slate-500 hover:text-white';
+            document.getElementById('btn-en').className = lang === 'en' ? 'text-blue-400' : 'text-slate-500 hover:text-white';
+
+            // Update Text
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (i18n[lang][key]) el.textContent = i18n[lang][key];
+            });
+
+            // Update Chart
+            if(radarChart) {
+                radarChart.data.labels = i18n[lang].radar_labels;
+                radarChart.update();
+            }
+        }
+
+        window.onload = initChart;
+    </script>
+</body>
+</html>
